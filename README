@@ -1,0 +1,9 @@
+http://localhost:3000/users this url for register one user. 
+
+http://localhost:3000/login this url for login api and get jwt token
+
+http://localhost:3000/users?status=active this api for filter the status of actve api
+
+http://localhost:3000/update/1 this is update api and jwt using method
+
+run command is npx ts-node server.ts
