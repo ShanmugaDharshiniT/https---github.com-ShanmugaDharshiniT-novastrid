@@ -15,6 +15,8 @@ app.post('/chats', upload.single('file'), async (req: any, res: Response): Promi
     try {
 
         const workbook = xlsx.readFile(req.file.path);
+        console.log("workbook", workbook);
+
         const sheetname = workbook.SheetNames[0];
         const data = xlsx.utils.sheet_to_json(workbook.Sheets[sheetname]);
 
@@ -26,6 +28,8 @@ app.post('/chats', upload.single('file'), async (req: any, res: Response): Promi
         ]));
 
         const query = 'INSERT INTO chat_history(sender, receiver, message,timestamp) VALUES ?';
+
+        console.log("query", query);
 
         const connection = await pool.getConnection();
         await connection.query(query, [chat_data]);
